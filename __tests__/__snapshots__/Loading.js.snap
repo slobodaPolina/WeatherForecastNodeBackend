@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders loading correctly 1`] = `
+<div>
+  <div
+    className="bigText"
+  >
+    Подождите, данные загружаются
+  </div>
+  <div
+    className="refreshBanner"
+  >
+    <img
+      alt="loading"
+      className="refreshImage"
+      src="/images/refresh.svg"
+    />
+  </div>
+</div>
+`;

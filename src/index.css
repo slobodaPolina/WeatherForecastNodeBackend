@@ -1,0 +1,152 @@
+.forecastContainer {
+    height: 250px;
+    margin-top: 10px;
+}
+
+.forecastRow {
+    background: #00ffff;
+    padding: 10px;
+}
+
+.smallCityCard {
+    width: 45%;
+    margin-top: 30px;
+}
+
+.width45 {
+    width: 45%;
+}
+
+.SmallPreviewContainer {
+    margin: 10px;
+    height: 36px;
+}
+
+.width36px {
+    width: 36px;
+}
+
+.georefRefresh {
+    background-color: #00cccc;
+    border: 0;
+    border-radius: 5px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.favorites {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.flex1 {
+    flex: 1;
+}
+
+.paramTitle, .cityTitle, .mainTitle {
+    font-weight: bold;
+}
+.bigText {
+    font-size: 35px;
+}
+.hugeText {
+    font-size: 75px;
+}
+
+.roundButton {
+    background-color: black;
+    border: none;
+    color: white;
+    font-size: 30px;
+    border-radius: 50%;
+}
+
+.search-button {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.removeButton {
+    transform: rotate(45deg);
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.error-message {
+    color: red;
+}
+
+.search-bar {
+    height: 50px;
+}
+
+.search-bar input {
+    height: 50px;
+    width: 400px;
+    background-color:  #ccffff;
+    padding-left: 15px;
+    flex-grow: 1;
+    border: 0;
+}
+
+.weatherImage {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    max-width: 150px;
+    max-height: 150px;
+}
+
+.search-bar input:focus{
+    outline: none;
+}
+.search-bar input::-webkit-search-decoration,
+.search-bar input::-webkit-search-cancel-button,
+.search-bar input::-webkit-search-results-button,
+.search-bar input::-webkit-search-results-decoration {
+    display: none;
+}
+
+.fixed-margin-children > * {
+    margin: 50px;
+}
+
+.refreshBanner {
+    background-color: #00cccc;
+    width: 33%;
+    height: 100px;
+    margin: auto;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.refreshImage {
+    height: 70%;
+    animation: spin 3s cubic-bezier(.77,0,.18,1) infinite;
+}
+
+@keyframes spin {
+    from { transform:rotate(0deg); }
+    to { transform:rotate(360deg); }
+}

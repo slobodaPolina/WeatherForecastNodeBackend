@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders MainBlock with geolocation correctly 1`] = `
+<div
+  className="row main"
+>
+  <div
+    className="width45 column"
+  >
+    <div
+      className="mainTitle bigText"
+    >
+      London
+    </div>
+    <div
+      className="row"
+    >
+      <img
+        alt="Weather"
+        className="weatherImage"
+        src="/images/Haze.jpg"
+      />
+      <div
+        className="hugeText"
+      >
+        2.48
+        °C
+      </div>
+    </div>
+  </div>
+  <div
+    className="width45"
+  >
+    <div
+      className="forecastContainer column"
+    >
+      <div
+        className="forecastRow row"
+      >
+        <div
+          className="paramTitle"
+        >
+          Ветер
+        </div>
+        <div
+          className="paramValue"
+        >
+          1.5
+           meter/sec
+        </div>
+      </div>
+      <div
+        className="forecastRow row"
+      >
+        <div
+          className="paramTitle"
+        >
+          Облачность
+        </div>
+        <div
+          className="paramValue"
+        >
+          haze
+        </div>
+      </div>
+      <div
+        className="forecastRow row"
+      >
+        <div
+          className="paramTitle"
+        >
+          Давление
+        </div>
+        <div
+          className="paramValue"
+        >
+          756.00
+           mm Hg
+        </div>
+      </div>
+      <div
+        className="forecastRow row"
+      >
+        <div
+          className="paramTitle"
+        >
+          Влажность
+        </div>
+        <div
+          className="paramValue"
+        >
+          93
+          %
+        </div>
+      </div>
+      <div
+        className="forecastRow row"
+      >
+        <div
+          className="paramTitle"
+        >
+          Координаты
+        </div>
+        <div
+          className="paramValue"
+        >
+          [
+          -0.13
+          , 
+          51.51
+          ]
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders mainBlock with no geolocation correctly 1`] = `
+<div>
+  <div
+    className="bigText"
+  >
+    Подождите, данные загружаются
+  </div>
+  <div
+    className="refreshBanner"
+  >
+    <img
+      alt="loading"
+      className="refreshImage"
+      src="/images/refresh.svg"
+    />
+  </div>
+</div>
+`;

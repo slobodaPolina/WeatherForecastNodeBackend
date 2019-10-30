@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders SmallPreview correctly 1`] = `
+<div
+  className="row SmallPreviewContainer"
+>
+  <div
+    className="width45 row"
+  >
+    <div
+      className="cityTitle"
+    >
+      London
+    </div>
+    <div
+      className="cityTemp"
+    >
+      2.48
+       °C
+    </div>
+    <div
+      className="width36px"
+    >
+      <img
+        alt="Weather"
+        className="weatherImage"
+        src="/images/Haze.jpg"
+      />
+    </div>
+  </div>
+  <button
+    className="roundButton removeButton"
+    onClick={[Function]}
+  >
+    +
+  </button>
+</div>
+`;
+
+exports[`renders SmallPreview of not loaded city correctly 1`] = `
+<div
+  className="row SmallPreviewContainer"
+>
+  <div
+    className="width45 row"
+  >
+    <div
+      className="cityTitle"
+    >
+      London
+    </div>
+    
+    
+  </div>
+  <button
+    className="roundButton removeButton"
+    onClick={[Function]}
+  >
+    +
+  </button>
+</div>
+`;

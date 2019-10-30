@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders forecast correctly 1`] = `
+<div
+  className="forecastContainer column"
+>
+  <div
+    className="forecastRow row"
+  >
+    <div
+      className="paramTitle"
+    >
+      Ветер
+    </div>
+    <div
+      className="paramValue"
+    >
+      1.5
+       meter/sec
+    </div>
+  </div>
+  <div
+    className="forecastRow row"
+  >
+    <div
+      className="paramTitle"
+    >
+      Облачность
+    </div>
+    <div
+      className="paramValue"
+    >
+      haze
+    </div>
+  </div>
+  <div
+    className="forecastRow row"
+  >
+    <div
+      className="paramTitle"
+    >
+      Давление
+    </div>
+    <div
+      className="paramValue"
+    >
+      756.00
+       mm Hg
+    </div>
+  </div>
+  <div
+    className="forecastRow row"
+  >
+    <div
+      className="paramTitle"
+    >
+      Влажность
+    </div>
+    <div
+      className="paramValue"
+    >
+      93
+      %
+    </div>
+  </div>
+  <div
+    className="forecastRow row"
+  >
+    <div
+      className="paramTitle"
+    >
+      Координаты
+    </div>
+    <div
+      className="paramValue"
+    >
+      [
+      -0.13
+      , 
+      51.51
+      ]
+    </div>
+  </div>
+</div>
+`;

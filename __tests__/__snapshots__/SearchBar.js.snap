@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders SearchBar correctly 1`] = `
+<div>
+  <div
+    className="search-bar row"
+  >
+    <div
+      className="bigText"
+    >
+      Избранное
+    </div>
+    <div>
+      <form
+        onSubmit={[Function]}
+      >
+        <input
+          id="search-input"
+          onChange={[Function]}
+          placeholder="Добавить новый город"
+          type="search"
+          value=""
+        />
+        <button
+          className="search-button roundButton"
+        >
+          +
+        </button>
+      </form>
+    </div>
+  </div>
+  
+</div>
+`;
+
+exports[`renders SearchBar non valid city correctly 1`] = `
+<div>
+  <div
+    className="search-bar row"
+  >
+    <div
+      className="bigText"
+    >
+      Избранное
+    </div>
+    <div>
+      <form
+        onSubmit={[Function]}
+      >
+        <input
+          id="search-input"
+          onChange={[Function]}
+          placeholder="Добавить новый город"
+          type="search"
+          value=""
+        />
+        <button
+          className="search-button roundButton"
+        >
+          +
+        </button>
+      </form>
+    </div>
+  </div>
+  <div
+    className="error-message"
+  >
+    Seems like the city is not valid
+  </div>
+</div>
+`;
+
+exports[`renders SearchBar with city correctly 1`] = `
+<div>
+  <div
+    className="search-bar row"
+  >
+    <div
+      className="bigText"
+    >
+      Избранное
+    </div>
+    <div>
+      <form
+        onSubmit={[Function]}
+      >
+        <input
+          id="search-input"
+          onChange={[Function]}
+          placeholder="Добавить новый город"
+          type="search"
+          value="London"
+        />
+        <button
+          className="search-button roundButton"
+        >
+          +
+        </button>
+      </form>
+    </div>
+  </div>
+  
+</div>
+`;

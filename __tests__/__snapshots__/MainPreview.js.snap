@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders mainPreview correctly 1`] = `
+<div
+  className="width45 column"
+>
+  <div
+    className="mainTitle bigText"
+  >
+    London
+  </div>
+  <div
+    className="row"
+  >
+    <img
+      alt="Weather"
+      className="weatherImage"
+      src="/images/Haze.jpg"
+    />
+    <div
+      className="hugeText"
+    >
+      2.48
+      °C
+    </div>
+  </div>
+</div>
+`;
