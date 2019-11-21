@@ -22,7 +22,7 @@ app.post('/favorites', async function (req, res) {
 });
 
 app.delete('/favorites', async function (req, res) {
-    await db.delete(req.body.name);
+    await db.deleteCity(req.body.name);
 });
 
 app.listen(8080, '0.0.0.0', () => {

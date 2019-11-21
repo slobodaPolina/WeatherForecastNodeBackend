@@ -16,7 +16,7 @@ async function insert(name) {
     await new FavoriteCity({ _id: name }).save();
 }
 
-async function delete(name) {
+async function deleteCity(name) {
     await FavoriteCity.deleteOne({ _id: name });
 }
 
@@ -33,6 +33,6 @@ function selectAll() {
 
 module.exports = {
     insert,
-    delete,
+    deleteCity,
     selectAll
 }
