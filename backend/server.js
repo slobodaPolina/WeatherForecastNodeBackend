@@ -7,11 +7,21 @@ app.use('/', express.static('dist'));
 app.use(bodyParser.json());
 
 app.get('/weather', async function (req, res) {
-    //get by city
+    res.json(
+        axios.get(
+            'https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?id=' +
+                req.query.cityCode + '&appid=c21880c5125c247d642c0e4058a0a704'
+        )
+    )
 });
 
 app.get('/weather/coordinates', async function (req, res) {
-    //get by coordinates
+    res.json(
+        axios.get(
+            'https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?lat=' +
+                req.query.lat + '&lon=' + req.query.lon + '&appid=c21880c5125c247d642c0e4058a0a704'
+        )
+    )
 });
 
 app.get('/favorites', async function (req, res) {
