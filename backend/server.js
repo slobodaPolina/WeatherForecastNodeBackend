@@ -1,6 +1,7 @@
-const app = require('express')();
+const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('./db.js');
+const app = express();
 
 app.use('/', express.static('dist'));
 app.use(bodyParser.json());
