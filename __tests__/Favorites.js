@@ -1,14 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import rootReducer from '../src/reducers';
 import Favorites from '../src/components/Favorites';
 
-const unloadedStore = createStore(
-    rootReducer,
-    {
-        favorites: [
+const unloadedFavorites = [
             {
                 name: 'City 1',
                 loaded: false,
@@ -17,19 +11,11 @@ const unloadedStore = createStore(
                 name: 'City 2',
                 loaded: false,
             }
-        ],
-    }
-);
+        ];
 
-const emptyStore = createStore(
-    rootReducer,
-    {favorites: []}
-);
+const emptyFavorites = [];
 
-const loadedStore = createStore(
-    rootReducer,
-    {
-        favorites: [
+const loadedFavorites = [
             {
                 clouds: {
                     all: 40
@@ -105,35 +91,36 @@ const loadedStore = createStore(
                     speed: 1.5
                 }
             }
-        ],
-    }
-);
+        ];
 
 
 it('renders unloaded favorites correctly', () => {
-  const tree = renderer.create(
-        <Provider store={unloadedStore}>
-            <Favorites/>
-        </Provider>
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
+    const component = renderer.create(<Favorites/>);
+    component.getInstance().setState({ favorites: unloadedFavorites });
+    expect(component.toJSON()).toMatchSnapshot();
 });
 
 
-it('renders empty favorites correctly', () => {
-  const tree = renderer.create(
-        <Provider store={emptyStore}>
-            <Favorites/>
-        </Provider>
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
+it('renders empty favorites with non valid city correctly', () => {
+    const component = renderer.create(<Favorites/>);
+    component.getInstance().setState({
+        isCityValid: false,
+        favorites: emptyFavorites
+    });
+    expect(component.toJSON()).toMatchSnapshot();
+});
+
+it('renders empty favorites with city correctly', () => {
+    const component = renderer.create(<Favorites/>);
+    component.getInstance().setState({
+        city: 'London',
+        favorites: emptyFavorites
+    });
+    expect(component.toJSON()).toMatchSnapshot();
 });
 
 it('renders loaded favorites correctly', () => {
-  const tree = renderer.create(
-        <Provider store={loadedStore}>
-            <Favorites/>
-        </Provider>
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
+    const component = renderer.create(<Favorites/>);
+    component.getInstance().setState({ favorites: loadedFavorites });
+    expect(component.toJSON()).toMatchSnapshot();
 });

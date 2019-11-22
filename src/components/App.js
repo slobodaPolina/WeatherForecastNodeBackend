@@ -1,7 +1,6 @@
 import React from 'react';
 import GeorefRefresh from './GeorefRefresh';
 import MainBlock from './MainBlock';
-import SearchBar from './SearchBar';
 import Favorites from './Favorites';
 
 function App(props) {
@@ -13,7 +12,6 @@ function App(props) {
                 <div className="flex1"></div>
             </div>
             <MainBlock />
-            <SearchBar />
             <Favorites />
         </div>
     );
