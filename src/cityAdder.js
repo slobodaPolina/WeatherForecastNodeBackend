@@ -39,10 +39,28 @@ export function addCityByGeolocation() {
     }
 }
 
-export function addCityToTheFavorites(cityName, successCallback, failureCallback) {
-    axios.post('/favorites?name=' + cityName)//todo body, not query!
-        .then(successCallback)
+export function getTheFavorites(successCallback, failureCallback) {
+    axios.get('/favorites')
+        .then((data) => successCallback(data))
         .catch(failureCallback);
+}
+
+export function addCityToTheFavorites(cityName, successCallback, failureCallback) {
+    axios({
+        method: 'post',
+        url: '/favorites',
+        data: { name: cityName }
+    }).then(successCallback)
+    .catch(failureCallback);
+}
+
+export function deleteCityFromTheFavorites(cityName, successCallback, failureCallback) {
+    axios({
+        method: 'delete',
+        url: '/favorites',
+        data: { name: cityName }
+    }).then(successCallback)
+     .catch(failureCallback);
 }
 
 function setDefaultGeolocationCity() {
@@ -74,4 +92,10 @@ function preprocessData(data) {
     return data;
 }
 
-export default {addCityByName, addCityByGeolocation, addCityToTheFavorites};
+export default {
+    addCityByName,
+    addCityByGeolocation,
+    getTheFavorites,
+    addCityToTheFavorites,
+    deleteCityFromTheFavorites
+};

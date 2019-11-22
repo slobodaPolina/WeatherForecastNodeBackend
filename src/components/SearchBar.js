@@ -1,5 +1,5 @@
 import React from 'react';
-import { addCityByName, addCityToTheFavorites } from '../cityAdder';
+import { addCityByName, getTheFavorites, addCityToTheFavorites } from '../cityAdder';
 
 export class SearchBar extends React.Component {
     constructor(props) {
@@ -7,10 +7,14 @@ export class SearchBar extends React.Component {
         this.state = {
             city: "",
             isCityValid: true,
-            favorites: [] //todo fill with the selectAll (notice it is the list of names!)
+            favorites: []
         };
         this.handleSearch = this.handleSearch.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
+        getTheFavorites(
+            (data) => {this.state.favorites.push(data)},
+            () => console.error("Problems getting favorite cities!")
+        );
     }
 
     render() {
