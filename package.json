@@ -1,5 +1,5 @@
 {
-  "name": "ReactForecast",
+  "name": "ReactForecastWithTestsAndBackend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,7 +12,8 @@
     "react-scripts": "3.2.0",
     "react-test-renderer": "^16.11.0",
     "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+	"body-parser": "latest"
   },
   "scripts": {
     "start": "react-scripts build && node ./backend/server.js",

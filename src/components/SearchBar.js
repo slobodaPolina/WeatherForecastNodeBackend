@@ -1,13 +1,13 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { addCityByName } from '../cityAdder';
+import { addCityByName, addCityToTheFavorites } from '../cityAdder';
 
 export class SearchBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             city: "",
-            isCityValid: true
+            isCityValid: true,
+            favorites: [] //todo fill with the selectAll (notice it is the list of names!)
         };
         this.handleSearch = this.handleSearch.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -37,42 +37,45 @@ export class SearchBar extends React.Component {
     }
 
     handleSearch(event) {
-        var getCallback = (isSuccess) => () => {
+        const getCallback = (isSuccess) => () => {
             this.setState({isCityValid: isSuccess});
             // remove loading card anyway
-            this.props.dispatch({
+            this.props.dispatch({ //todo
                 type: 'REMOVE_FAVORITE',
                 cityName: this.state.city
             });
-            if (isSuccess) {
-                this.setState({city: ""});
+            if (isSuccess) { // means we got data from weather service
+                addCityToTheFavorites(
+                    this.state.city,
+                    () => {
+                        this.setState({favorites: this.state.favorites.push(this.state.city)});
+                        this.setState({city: ""});
+                    },
+                    () => {
+                        console.error('error during saving favorite city in db!');
+                        this.setState({isCityValid: false});
+                    }
+                );
             }
-        }
+        };
 
         event.preventDefault();
-        if (this.props.favorites.find(city => city.name === this.state.city)) {
+        if (this.props.favorites.find(cityName => cityName === this.state.city)) { // if we already have it we wont add it again
             this.setState({isCityValid: false});
         } else {
             // it is just to start the loader
-            this.props.dispatch({
+            this.props.dispatch({ //todo deal with loading
                 type: 'ADD_FAVORITE',
                 city: {name: this.state.city}
             });
             // load real data and display it
-            this.props.dispatch(
-                addCityByName(
-                    this.state.city,
-                    'ADD_FAVORITE',
-                    getCallback(true),
-                    getCallback(false)
-                )
+            addCityByName(
+                this.state.city,
+                getCallback(true),
+                getCallback(false)
             );
         }
     }
 }
 
-export const SearchBarContainer = connect(
-    state => ({ favorites: state.favorites })
-)(SearchBar);
-
-export default SearchBarContainer;
+export default SearchBar;

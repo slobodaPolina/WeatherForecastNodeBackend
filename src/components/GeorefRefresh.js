@@ -5,13 +5,12 @@ import { addCityByGeolocation } from '../cityAdder';
 
 export class GeorefRefresh extends React.Component {
     constructor(props) {
-        super(props)
-        this.addCity = this.addCity.bind(this)
+        super(props);
+        this.addCity = this.addCity.bind(this);
     }
 
-
     addCity() {
-        this.props.dispatch(addCityByGeolocation())
+        this.props.dispatch(addCityByGeolocation());
     }
 
     render() {

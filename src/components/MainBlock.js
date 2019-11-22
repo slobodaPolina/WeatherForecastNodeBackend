@@ -7,7 +7,7 @@ import Loading from './Loading';
 
 export class MainBlock extends React.Component {
     render() {
-        if (this.props.data !== null) {
+        if (this.props.data !== null) { // we know current geolocation
             return (
                 <div className="row main">
                     <MainPreview data={this.props.data}/>
