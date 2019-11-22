@@ -6,7 +6,9 @@ mongoose.connect(
     'mongodb://127.0.0.1:27017/polina',
     { useNewUrlParser: true, user: "polina", pass: "1234" }
 ).then(() => {
-    FavoriteCity = mongoose.model('FavoriteCity', new mongoose.Schema({ _id: String }));
+    FavoriteCity = mongoose.model('FavoriteCity', new mongoose.Schema({
+        _id: String //it is the name
+    }));
 });
 
 async function insert(name) {
@@ -35,4 +37,4 @@ module.exports = {
     insert,
     deleteCity,
     selectAll
-}
+};

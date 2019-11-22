@@ -1,5 +1,5 @@
 import React from 'react';
-import { addCityByName, getTheFavorites, addCityToTheFavorites } from '../cityAdder';
+import { getCityByName, getTheFavorites, addCityToTheFavorites } from '../cityAdder';
 
 export class SearchBar extends React.Component {
     constructor(props) {
@@ -43,11 +43,7 @@ export class SearchBar extends React.Component {
     handleSearch(event) {
         const getCallback = (isSuccess) => () => {
             this.setState({isCityValid: isSuccess});
-            // remove loading card anyway
-            this.props.dispatch({ //todo
-                type: 'REMOVE_FAVORITE',
-                cityName: this.state.city
-            });
+            // todo remove loading card anyway
             if (isSuccess) { // means we got data from weather service
                 addCityToTheFavorites(
                     this.state.city,
@@ -67,13 +63,9 @@ export class SearchBar extends React.Component {
         if (this.props.favorites.find(cityName => cityName === this.state.city)) { // if we already have it we wont add it again
             this.setState({isCityValid: false});
         } else {
-            // it is just to start the loader
-            this.props.dispatch({ //todo deal with loading
-                type: 'ADD_FAVORITE',
-                city: {name: this.state.city}
-            });
+            // todo start the loader on the citycard
             // load real data and display it
-            addCityByName(
+	        getCityByName(
                 this.state.city,
                 getCallback(true),
                 getCallback(false)

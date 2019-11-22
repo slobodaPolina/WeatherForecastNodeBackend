@@ -1,7 +1,7 @@
 import axios from 'axios';
 import getCityCodeByName from './vocabulary/vocabulary';
 
-export function addCityByName(
+export function getCityByName(
     cityName,
     successCallback = () => {},
     failureCallback = () => {}
@@ -93,7 +93,7 @@ function preprocessData(data) {
 }
 
 export default {
-    addCityByName,
+    getCityByName,
     addCityByGeolocation,
     getTheFavorites,
     addCityToTheFavorites,
