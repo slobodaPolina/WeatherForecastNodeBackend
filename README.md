@@ -1,6 +1,11 @@
 `ssh oshnix`
-`cd ReactForecastWithTestsAndBackend`
+
+`cd projects/ReactForecastWithTestsAndBackend`
+
 `git pull`
+
 `npm start`
-to test it just call
-`npm run test`
+
+then open the https://test.oshnix.com/
+
+to test it just call `npm run test`
