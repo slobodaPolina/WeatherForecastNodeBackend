@@ -65,7 +65,7 @@ export function deleteCityFromTheFavorites(cityName, successCallback, failureCal
 
 function setDefaultGeolocationCity() {
     return (dispatch) => {
-        addCityByName(
+        getCityByName(
             'Sankt-Peterburg',
             (data) => dispatch({
                 type: 'SET_GEOLOCATION',

@@ -25,7 +25,9 @@ async function deleteCity(name) {
 function selectAll() {
     return new Promise((resolve, reject) => {
         FavoriteCity.find((err, favorites) => {
+		console.log(favorites);
             if (err) {
+		    console.error(err);
                 reject(err);
             }
             resolve(favorites);

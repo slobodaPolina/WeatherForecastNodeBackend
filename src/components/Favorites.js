@@ -54,7 +54,7 @@ export class Favorites extends React.Component {
                     {msg}
                 </div>
                 <div className="favorites">
-                    {this.props.favorites.map((city) => {
+                    {this.state.favorites.map((city) => {
                         return (
                             <div className="smallCityCard" key={city.name}>
                                 <SmallPreview city={city} removeCity={this.removeGenerator(city.name)}/>

@@ -1,249 +1,355 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders empty favorites correctly 1`] = `
-<div
-  className="favorites"
-/>
+exports[`renders empty favorites with city correctly 1`] = `
+<div>
+  <div>
+    <div
+      className="search-bar row"
+    >
+      <div
+        className="bigText"
+      >
+        Избранное
+      </div>
+      <div>
+        <form
+          onSubmit={[Function]}
+        >
+          <input
+            id="search-input"
+            onChange={[Function]}
+            placeholder="Добавить новый город"
+            type="search"
+            value="London"
+          />
+          <button
+            className="search-button roundButton"
+          >
+            +
+          </button>
+        </form>
+      </div>
+    </div>
+    
+  </div>
+  <div
+    className="favorites"
+  />
+</div>
 `;
 
-exports[`renders loaded favorites correctly 1`] = `
-<div
-  className="favorites"
->
-  <div
-    className="smallCityCard"
-  >
+exports[`renders empty favorites with non valid city correctly 1`] = `
+<div>
+  <div>
     <div
-      className="row SmallPreviewContainer"
+      className="search-bar row"
     >
       <div
-        className="width45 row"
+        className="bigText"
       >
-        <div
-          className="cityTitle"
-        >
-          London
-        </div>
-        <div
-          className="cityTemp"
-        >
-          2.48
-           °C
-        </div>
-        <div
-          className="width36px"
-        >
-          <img
-            alt="Weather"
-            className="weatherImage"
-            src="/images/Haze.jpg"
-          />
-        </div>
+        Избранное
       </div>
-      <button
-        className="roundButton removeButton"
-        onClick={[Function]}
-      >
-        +
-      </button>
+      <div>
+        <form
+          onSubmit={[Function]}
+        >
+          <input
+            id="search-input"
+            onChange={[Function]}
+            placeholder="Добавить новый город"
+            type="search"
+            value=""
+          />
+          <button
+            className="search-button roundButton"
+          >
+            +
+          </button>
+        </form>
+      </div>
     </div>
     <div
-      className="forecastContainer column"
+      className="error-message"
     >
-      <div
-        className="forecastRow row"
-      >
-        <div
-          className="paramTitle"
-        >
-          Ветер
-        </div>
-        <div
-          className="paramValue"
-        >
-          1.5
-           meter/sec
-        </div>
-      </div>
-      <div
-        className="forecastRow row"
-      >
-        <div
-          className="paramTitle"
-        >
-          Облачность
-        </div>
-        <div
-          className="paramValue"
-        >
-          haze
-        </div>
-      </div>
-      <div
-        className="forecastRow row"
-      >
-        <div
-          className="paramTitle"
-        >
-          Давление
-        </div>
-        <div
-          className="paramValue"
-        >
-          756.00
-           mm Hg
-        </div>
-      </div>
-      <div
-        className="forecastRow row"
-      >
-        <div
-          className="paramTitle"
-        >
-          Влажность
-        </div>
-        <div
-          className="paramValue"
-        >
-          93
-          %
-        </div>
-      </div>
-      <div
-        className="forecastRow row"
-      >
-        <div
-          className="paramTitle"
-        >
-          Координаты
-        </div>
-        <div
-          className="paramValue"
-        >
-          [
-          -0.13
-          , 
-          51.51
-          ]
-        </div>
-      </div>
+      Seems like the city is not valid
     </div>
   </div>
   <div
-    className="smallCityCard"
+    className="favorites"
+  />
+</div>
+`;
+
+exports[`renders loaded favorites correctly 1`] = `
+<div>
+  <div>
+    <div
+      className="search-bar row"
+    >
+      <div
+        className="bigText"
+      >
+        Избранное
+      </div>
+      <div>
+        <form
+          onSubmit={[Function]}
+        >
+          <input
+            id="search-input"
+            onChange={[Function]}
+            placeholder="Добавить новый город"
+            type="search"
+            value=""
+          />
+          <button
+            className="search-button roundButton"
+          >
+            +
+          </button>
+        </form>
+      </div>
+    </div>
+    
+  </div>
+  <div
+    className="favorites"
   >
     <div
-      className="row SmallPreviewContainer"
+      className="smallCityCard"
     >
       <div
-        className="width45 row"
+        className="row SmallPreviewContainer"
       >
         <div
-          className="cityTitle"
+          className="width45 row"
         >
-          Paris
+          <div
+            className="cityTitle"
+          >
+            London
+          </div>
+          <div
+            className="cityTemp"
+          >
+            2.48
+             °C
+          </div>
+          <div
+            className="width36px"
+          >
+            <img
+              alt="Weather"
+              className="weatherImage"
+              src="/images/Haze.jpg"
+            />
+          </div>
+        </div>
+        <button
+          className="roundButton removeButton"
+          onClick={[Function]}
+        >
+          +
+        </button>
+      </div>
+      <div
+        className="forecastContainer column"
+      >
+        <div
+          className="forecastRow row"
+        >
+          <div
+            className="paramTitle"
+          >
+            Ветер
+          </div>
+          <div
+            className="paramValue"
+          >
+            1.5
+             meter/sec
+          </div>
         </div>
         <div
-          className="cityTemp"
+          className="forecastRow row"
         >
-          2.48
-           °C
+          <div
+            className="paramTitle"
+          >
+            Облачность
+          </div>
+          <div
+            className="paramValue"
+          >
+            haze
+          </div>
         </div>
         <div
-          className="width36px"
+          className="forecastRow row"
         >
-          <img
-            alt="Weather"
-            className="weatherImage"
-            src="/images/Haze.jpg"
-          />
+          <div
+            className="paramTitle"
+          >
+            Давление
+          </div>
+          <div
+            className="paramValue"
+          >
+            756.00
+             mm Hg
+          </div>
+        </div>
+        <div
+          className="forecastRow row"
+        >
+          <div
+            className="paramTitle"
+          >
+            Влажность
+          </div>
+          <div
+            className="paramValue"
+          >
+            93
+            %
+          </div>
+        </div>
+        <div
+          className="forecastRow row"
+        >
+          <div
+            className="paramTitle"
+          >
+            Координаты
+          </div>
+          <div
+            className="paramValue"
+          >
+            [
+            -0.13
+            , 
+            51.51
+            ]
+          </div>
         </div>
       </div>
-      <button
-        className="roundButton removeButton"
-        onClick={[Function]}
-      >
-        +
-      </button>
     </div>
     <div
-      className="forecastContainer column"
+      className="smallCityCard"
     >
       <div
-        className="forecastRow row"
+        className="row SmallPreviewContainer"
       >
         <div
-          className="paramTitle"
+          className="width45 row"
         >
-          Ветер
+          <div
+            className="cityTitle"
+          >
+            Paris
+          </div>
+          <div
+            className="cityTemp"
+          >
+            2.48
+             °C
+          </div>
+          <div
+            className="width36px"
+          >
+            <img
+              alt="Weather"
+              className="weatherImage"
+              src="/images/Haze.jpg"
+            />
+          </div>
         </div>
-        <div
-          className="paramValue"
+        <button
+          className="roundButton removeButton"
+          onClick={[Function]}
         >
-          1.5
-           meter/sec
-        </div>
+          +
+        </button>
       </div>
       <div
-        className="forecastRow row"
+        className="forecastContainer column"
       >
         <div
-          className="paramTitle"
+          className="forecastRow row"
         >
-          Облачность
+          <div
+            className="paramTitle"
+          >
+            Ветер
+          </div>
+          <div
+            className="paramValue"
+          >
+            1.5
+             meter/sec
+          </div>
         </div>
         <div
-          className="paramValue"
+          className="forecastRow row"
         >
-          haze
-        </div>
-      </div>
-      <div
-        className="forecastRow row"
-      >
-        <div
-          className="paramTitle"
-        >
-          Давление
-        </div>
-        <div
-          className="paramValue"
-        >
-          756.00
-           mm Hg
-        </div>
-      </div>
-      <div
-        className="forecastRow row"
-      >
-        <div
-          className="paramTitle"
-        >
-          Влажность
+          <div
+            className="paramTitle"
+          >
+            Облачность
+          </div>
+          <div
+            className="paramValue"
+          >
+            haze
+          </div>
         </div>
         <div
-          className="paramValue"
+          className="forecastRow row"
         >
-          93
-          %
+          <div
+            className="paramTitle"
+          >
+            Давление
+          </div>
+          <div
+            className="paramValue"
+          >
+            756.00
+             mm Hg
+          </div>
         </div>
-      </div>
-      <div
-        className="forecastRow row"
-      >
         <div
-          className="paramTitle"
+          className="forecastRow row"
         >
-          Координаты
+          <div
+            className="paramTitle"
+          >
+            Влажность
+          </div>
+          <div
+            className="paramValue"
+          >
+            93
+            %
+          </div>
         </div>
         <div
-          className="paramValue"
+          className="forecastRow row"
         >
-          [
-          -0.13
-          , 
-          51.51
-          ]
+          <div
+            className="paramTitle"
+          >
+            Координаты
+          </div>
+          <div
+            className="paramValue"
+          >
+            [
+            -0.13
+            , 
+            51.51
+            ]
+          </div>
         </div>
       </div>
     </div>
@@ -252,88 +358,120 @@ exports[`renders loaded favorites correctly 1`] = `
 `;
 
 exports[`renders unloaded favorites correctly 1`] = `
-<div
-  className="favorites"
->
-  <div
-    className="smallCityCard"
-  >
+<div>
+  <div>
     <div
-      className="row SmallPreviewContainer"
+      className="search-bar row"
     >
-      <div
-        className="width45 row"
-      >
-        <div
-          className="cityTitle"
-        >
-          City 1
-        </div>
-        
-        
-      </div>
-      <button
-        className="roundButton removeButton"
-        onClick={[Function]}
-      >
-        +
-      </button>
-    </div>
-    <div>
       <div
         className="bigText"
       >
-        Подождите, данные загружаются
+        Избранное
       </div>
-      <div
-        className="refreshBanner"
-      >
-        <img
-          alt="loading"
-          className="refreshImage"
-          src="/images/refresh.svg"
-        />
+      <div>
+        <form
+          onSubmit={[Function]}
+        >
+          <input
+            id="search-input"
+            onChange={[Function]}
+            placeholder="Добавить новый город"
+            type="search"
+            value=""
+          />
+          <button
+            className="search-button roundButton"
+          >
+            +
+          </button>
+        </form>
       </div>
     </div>
+    
   </div>
   <div
-    className="smallCityCard"
+    className="favorites"
   >
     <div
-      className="row SmallPreviewContainer"
+      className="smallCityCard"
     >
       <div
-        className="width45 row"
+        className="row SmallPreviewContainer"
       >
         <div
-          className="cityTitle"
+          className="width45 row"
         >
-          City 2
+          <div
+            className="cityTitle"
+          >
+            City 1
+          </div>
+          
+          
         </div>
-        
-        
+        <button
+          className="roundButton removeButton"
+          onClick={[Function]}
+        >
+          +
+        </button>
       </div>
-      <button
-        className="roundButton removeButton"
-        onClick={[Function]}
-      >
-        +
-      </button>
+      <div>
+        <div
+          className="bigText"
+        >
+          Подождите, данные загружаются
+        </div>
+        <div
+          className="refreshBanner"
+        >
+          <img
+            alt="loading"
+            className="refreshImage"
+            src="/images/refresh.svg"
+          />
+        </div>
+      </div>
     </div>
-    <div>
+    <div
+      className="smallCityCard"
+    >
       <div
-        className="bigText"
+        className="row SmallPreviewContainer"
       >
-        Подождите, данные загружаются
+        <div
+          className="width45 row"
+        >
+          <div
+            className="cityTitle"
+          >
+            City 2
+          </div>
+          
+          
+        </div>
+        <button
+          className="roundButton removeButton"
+          onClick={[Function]}
+        >
+          +
+        </button>
       </div>
-      <div
-        className="refreshBanner"
-      >
-        <img
-          alt="loading"
-          className="refreshImage"
-          src="/images/refresh.svg"
-        />
+      <div>
+        <div
+          className="bigText"
+        >
+          Подождите, данные загружаются
+        </div>
+        <div
+          className="refreshBanner"
+        >
+          <img
+            alt="loading"
+            className="refreshImage"
+            src="/images/refresh.svg"
+          />
+        </div>
       </div>
     </div>
   </div>
