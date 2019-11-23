@@ -15,15 +15,16 @@ export class Favorites extends React.Component {
         this.handleSearch = this.handleSearch.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         getTheFavorites(
-            (data) => {
-                data.forEach(name => {
+            ({ data }) => {
+                data.forEach(({ _id: name }) => {
                     getCityByName(
                         name,
                         (data) => {
                             this.addToTheFavorites(Object.assign(data, { loaded: true }));
                         },
-                        () => {
+                        error => {
                             console.error("Error getting favorite city " + name + " from weather API");
+                            console.error(error);
                             this.addToTheFavorites({
                                 name,
                                 loaded: false
@@ -31,8 +32,7 @@ export class Favorites extends React.Component {
                         }
                     );
                 });
-            },
-            () => console.error("Problems getting list of favorite cities from db!")
+            }
         );
     }
 

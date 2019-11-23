@@ -39,10 +39,13 @@ export function addCityByGeolocation() {
     }
 }
 
-export function getTheFavorites(successCallback, failureCallback) {
+export function getTheFavorites(successCallback, failureCallback = () => {}) {
     axios.get('/favorites')
         .then((data) => successCallback(data))
-        .catch(failureCallback);
+        .catch(error => {
+            console.error(error);
+            failureCallback();
+        });
 }
 
 export function addCityToTheFavorites(cityName, successCallback, failureCallback) {
