@@ -2,7 +2,7 @@ import React from 'react';
 import Forecast from './Forecast';
 import SmallPreview from './SmallPreview';
 import Loading from './Loading';
-import { getCityByName, getTheFavorites, addCityToTheFavorites, deleteCityFromTheFavorites } from "../cityAdder";
+import { getCityByName, getTheFavoritesDB, addCityToTheFavoritesDB, deleteCityFromTheFavoritesDB } from "../cityAdder";
 
 export class Favorites extends React.Component {
     constructor(props) {
@@ -10,25 +10,22 @@ export class Favorites extends React.Component {
         this.state = {
             city: "", // it is the text from the searchBar
             isCityValid: true, // is the city user tried t add valid
+            areLoadedFavorites: true, //are all of the favorites loaded successfully
             favorites: [] // array of objects of favorite cities. We keep only names in db
         };
         this.handleSearch = this.handleSearch.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
-        getTheFavorites(
+        getTheFavoritesDB(
             ({ data }) => {
                 data.forEach(({ _id: name }) => {
                     getCityByName(
                         name,
                         (data) => {
-                            this.addToTheFavorites(Object.assign(data, { loaded: true }));
+                            this.addToTheFavoritesStore(Object.assign(data, { loaded: true }));
                         },
                         error => {
-                            console.error("Error getting favorite city " + name + " from weather API");
                             console.error(error);
-                            this.addToTheFavorites({
-                                name,
-                                loaded: false
-                            });
+                            this.setState({ areLoadedFavorites: false });
                         }
                     );
                 });
@@ -37,7 +34,10 @@ export class Favorites extends React.Component {
     }
 
     render() {
-        let msg = this.state.isCityValid ? "" : <div className="error-message">Seems like the city is not valid</div>;
+        // users mistake
+        let badInputCity = this.state.isCityValid ? "" : <div className="error-message">Seems like the city you are searching for is not valid</div>;
+        // something is wrong with connections or smth like this. Normally is never shown
+        let problemsLoadingFavorites = this.state.areLoadedFavorites ? "" : <div className="error-message">Cant load some of your favorites due to technical problems</div>;
         return (
             <div>
                 <div>
@@ -51,7 +51,8 @@ export class Favorites extends React.Component {
                             </form>
                         </div>
                     </div>
-                    {msg}
+                    {badInputCity}
+                    {problemsLoadingFavorites}
                 </div>
                 <div className="favorites">
                     {this.state.favorites.map((city) => {
@@ -68,33 +69,38 @@ export class Favorites extends React.Component {
     }
 
     handleInputChange(event) {
-        this.setState({city: event.target.value});
+        this.setState({ city: event.target.value });
     }
 
     handleSearch(event) {
         const getCallback = (isSuccess) => (data) => {
-            this.setState({isCityValid: isSuccess});
-            // todo remove loading card anyway
+            this.setState({ isCityValid: isSuccess });
+            this.removeFromTheFavoritesStore(this.state.city);
             if (isSuccess) { // means we got data from weather service
-                addCityToTheFavorites(
+                addCityToTheFavoritesDB(
                     this.state.city,
                     () => {
-                        this.addToTheFavorites(data);
-                        this.setState({city: ""});
+                        this.addToTheFavoritesStore(data);
+                        this.setState({ city: "" });
                     },
-                    () => {
-                        console.error('error during saving favorite city in db!');
-                        this.setState({isCityValid: false});
+                    (error) => {
+                        console.error(error);
+                        this.setState({ areLoadedFavorites: false });
                     }
                 );
             }
         };
 
         event.preventDefault();
-        if (this.state.favorites.find(city => city.name === this.state.city)) { // if we already have it we wont add it again
-            this.setState({isCityValid: false});
+        // if we already have it we wont add it again
+        if (this.state.favorites.find(city => city.name === this.state.city)) {
+            this.setState({ isCityValid: false });
         } else {
-            // todo start the loader on the citycard
+            // start the loader animation
+            this.addToTheFavoritesStore({
+                name: this.state.city,
+                loaded: false
+            });
             // load real data and display it
             getCityByName(
                 this.state.city,
@@ -105,20 +111,27 @@ export class Favorites extends React.Component {
     }
 
     removeGenerator(cityName) {
-        return () => deleteCityFromTheFavorites(
+        return () => deleteCityFromTheFavoritesDB(
             cityName,
-            () => {
-                this.setState({
-                    favorites: this.state.favorites.filter(city => city.name !== cityName)
-                })
-            },
-            () => { console.error("Problems removing city " + cityName + " from db!") }
+            () => { this.removeFromTheFavoritesStore(cityName); },
+            (error) => {
+                console.error(error);
+                this.setState({ areLoadedFavorites: false });
+            }
          );
     }
 
-    addToTheFavorites(obj) {
+    addToTheFavoritesStore(obj) {
+        // to ensure we wont collect duplicates
+        this.removeFromTheFavoritesStore(obj.name);
         this.setState({
             favorites: this.state.favorites.concat([obj])
+        });
+    }
+
+    removeFromTheFavoritesStore(cityName) {
+        this.setState({
+            favorites: this.state.favorites.filter(city => city.name !== cityName)
         });
     }
 }
