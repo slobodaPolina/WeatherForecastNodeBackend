@@ -9,8 +9,10 @@ export function getCityByName(
     const cityCode = getCityCodeByName(cityName);
     if (cityCode) {
         axios.get('/weather?cityCode=' + cityCode)
-            .then(({ data }) => successCallback(data))
-            .catch(error => failureCallback(error));
+            .then(({ data }) => {
+                preprocessData(data);
+                successCallback(data);
+            }).catch(error => failureCallback(error));
     } else {
         failureCallback();
     }

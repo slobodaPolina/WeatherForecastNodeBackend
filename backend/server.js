@@ -47,6 +47,7 @@ app.post('/favorites', async function (req, res) {
     	await db.insert(req.body.name);
 	} catch(e) {
 		console.error(e);
+	} finally {
 		res.end();
 	}
 });
@@ -56,6 +57,7 @@ app.delete('/favorites', async function (req, res) {
 		await db.deleteCity(req.body.name);
 	} catch(e) {
 		console.error(e);
+	} finally {
 		res.end();
 	}
 });

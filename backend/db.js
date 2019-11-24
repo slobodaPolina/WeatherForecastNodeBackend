@@ -19,10 +19,12 @@ async function insert(name) {
     if (name === "") {
         return;
     }
+    console.log("inserting " + name);
     await new FavoriteCity({ _id: name }).save();
 }
 
 async function deleteCity(name) {
+    console.log("deleting " + name);
     await FavoriteCity.deleteOne({ _id: name });
 }
 

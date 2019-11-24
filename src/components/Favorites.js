@@ -72,14 +72,14 @@ export class Favorites extends React.Component {
     }
 
     handleSearch(event) {
-        const getCallback = (isSuccess) => () => {
+        const getCallback = (isSuccess) => (data) => {
             this.setState({isCityValid: isSuccess});
             // todo remove loading card anyway
             if (isSuccess) { // means we got data from weather service
                 addCityToTheFavorites(
                     this.state.city,
                     () => {
-                        this.setState({favorites: this.state.favorites.push(this.state.city)});
+                        this.addToTheFavorites(data);
                         this.setState({city: ""});
                     },
                     () => {
@@ -91,7 +91,7 @@ export class Favorites extends React.Component {
         };
 
         event.preventDefault();
-        if (this.props.favorites.find(city => city.name === this.state.city)) { // if we already have it we wont add it again
+        if (this.state.favorites.find(city => city.name === this.state.city)) { // if we already have it we wont add it again
             this.setState({isCityValid: false});
         } else {
             // todo start the loader on the citycard
@@ -118,7 +118,7 @@ export class Favorites extends React.Component {
 
     addToTheFavorites(obj) {
         this.setState({
-            favorites: this.state.favorites.push(obj)
+            favorites: this.state.favorites.concat([obj])
         });
     }
 }
