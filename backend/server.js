@@ -65,3 +65,7 @@ app.delete('/favorites', async function (req, res) {
 app.listen(8080, '0.0.0.0', () => {
     console.info('Server is up');
 });
+// todo tell geolocation city is cashed when u open the page
+// ignore cityCase
+// check preprocessData is called when we cannot get geolocation from browser
+// move city vocabulary to the backend (not important)
