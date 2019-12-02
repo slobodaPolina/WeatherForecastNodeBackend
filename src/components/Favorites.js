@@ -93,7 +93,7 @@ export class Favorites extends React.Component {
 
         event.preventDefault();
         // if we already have it we wont add it again
-        if (this.state.favorites.find(city => city.name === this.state.city)) {
+        if (this.state.favorites.find(city => city.name.toLowerCase() === this.state.city.toLowerCase())) {
             this.setState({ isCityValid: false });
         } else {
             // start the loader animation
@@ -131,7 +131,7 @@ export class Favorites extends React.Component {
 
     removeFromTheFavoritesStore(cityName) {
         this.setState({
-            favorites: this.state.favorites.filter(city => city.name !== cityName)
+            favorites: this.state.favorites.filter(city => city.name.toLowerCase() !== cityName.toLowerCase())
         });
     }
 }

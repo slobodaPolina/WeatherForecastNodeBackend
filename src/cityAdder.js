@@ -54,7 +54,7 @@ export function addCityToTheFavoritesDB(cityName, successCallback, failureCallba
     axios({
         method: 'post',
         url: '/favorites',
-        data: { name: cityName }
+        data: { name: cityName.toLowerCase() }
     }).then(successCallback)
     .catch(failureCallback);
 }
@@ -63,7 +63,7 @@ export function deleteCityFromTheFavoritesDB(cityName, successCallback, failureC
     axios({
         method: 'delete',
         url: '/favorites',
-        data: { name: cityName }
+        data: { name: cityName.toLowerCase() }
     }).then(successCallback)
      .catch(failureCallback);
 }
