@@ -5,7 +5,7 @@ var rawData = fs.readFileSync('city.list.json');
 var cities = JSON.parse(rawData);
 var vocabulary = {};
 
-cities.forEach(city => vocabulary[city.name] = city.id);
+cities.forEach(city => vocabulary[city.name.toLowerCase()] = city.id);
 
 let data = JSON.stringify(vocabulary);
 fs.writeFileSync('vocabulary.json', data);
