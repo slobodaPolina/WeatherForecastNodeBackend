@@ -74,7 +74,7 @@ function setDefaultGeolocationCity() {
             'Sankt-Peterburg',
             (data) => dispatch({
                 type: 'SET_GEOLOCATION',
-                city: preprocessData(data)
+                city: data
             })
         );
     }
