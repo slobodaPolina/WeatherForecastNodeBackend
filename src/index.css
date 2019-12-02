@@ -93,6 +93,7 @@ button:hover {
 
 .error-message {
     color: red;
+    margin-top: 15px;
 }
 
 .search-bar {

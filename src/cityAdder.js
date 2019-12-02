@@ -94,6 +94,7 @@ function preprocessData(data) {
     data.main.temp = (data.main.temp - 273.15).toFixed(1);
     data.main.pressureMmHg = (data.main.pressure * 0.75).toFixed(2);
     data.loaded = true;
+    data.timeLoaded = Date.now();
     return data;
 }
 
